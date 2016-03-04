@@ -86,13 +86,15 @@ if ($user->check()) {
 	
 
 	
-<?
+<?php
 	echo $_GET["step"];
 	}
 }
 else
 {
 	echo '<p>Musisz wpierw się <a href="login.php">zalogować!</a></p>';
+
+}
 }
 
 ?>

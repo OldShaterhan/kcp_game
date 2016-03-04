@@ -68,6 +68,6 @@ else
 	    <tr><td><input type="submit" value="WYŚLIJ"/></td></tr>
   	</table>
   </form>
-  <?
+  <?php
 }
 ?>
