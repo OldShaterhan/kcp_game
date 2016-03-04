@@ -6,7 +6,7 @@ require 'includes/header.php';
 if ($user->check()) {
 	
 	
-	if (empty($_POST)) //dlaczego, po wysyłce, POST jest pusty?
+	if (!empty($_POST)) //dlaczego, po wysyłce, POST jest pusty?
 	{
 		if ($_GET["step"]==2){	
 			?>
@@ -32,7 +32,7 @@ if ($user->check()) {
 			<td>Podaj imię 2. gracza drużyny A: <input type="text" id="plA2"/></td>
 			<td>Podaj imię 3. gracza drużyny A: <input type="text" id="plA3"/></td>
 			<td>Podaj imię 4. gracza drużyny A: <input type="text" id="plA4"/></td></tr>
-			<tr><td>Podaj imię 1. gracza drużyny B (kapitana): <input type="text" id="plB1"/></td>
+			<tr><td>Podaj imię 1. gracza drużyny B: <input type="text" id="plB1"/></td>
 			<td>Podaj imię 2. gracza drużyny B: <input type="text" id="plB2"/></td>
 			<td>Podaj imię 3. gracza drużyny B: <input type="text" id="plB3"/></td>
 			<td>Podaj imię 4. gracza drużyny B: <input type="text" id="plB4"/></td>

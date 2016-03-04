@@ -41,7 +41,7 @@ else
 			$errors[] = 'Proszę wypełnić wszystkie pola';
 		}
 
-		if ($reg = 'off') {
+		if (!$reg) {
 			$errors[] = 'Należy zaakceptować regulamin';
 		}
 		
@@ -104,8 +104,7 @@ else
 		<label for="email_v">Email (ponownie):</label>
 		<input type="email" name="email_v" maxlength="255" id="email_v" required><br>
 		
-		<label for="email_v">Akceptuję <a href="reg.html">regulamin</a></label>
-		<input type="checkbox" name="reg" required><br>
+		<label for="reg">Akceptuję <a href="reg.html">regulamin</a> <input type="checkbox" name="reg" required><br></label>
 
 		<input type="submit" value="Zarejestruj">
 	</form>
