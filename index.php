@@ -1,33 +1,27 @@
-<?php
-/*
-   +----------------------------------------------------------------------+
-   | Sobak User System 2                                                  |
-   +----------------------------------------------------------------------+
-   | www.forumweb.pl/a/b/487677                                           |
-   +----------------------------------------------------------------------+
-   | Ten plik jest częścią skryptu Sobak User System 2 <sobak.pl>         |
-   | Integrowanie w treść tego komentarza stanowi naruszenie zasad, na    |
-   | których udostępniono kod.                                            |
-   +----------------------------------------------------------------------+
-*/
+<?php session_start(); 
+    require_once 'includes/config.php';
+    require_once("includes/f_include.php");
+    require_once("includes/f_przyciski.php")
+?>
+<!DOCTYPE html>
+<html>
+        
+<?php 
+    // dołączenie <head> witryny
+    include("includes/header.php");
 
-require 'includes/config.php';
-require 'includes/header.php';
-
-require 'includes/menu.php';
-
-echo '<p>Projekt KCP</p>';
-
-if ($user->check()) { // Tylko dla użytkowników zalogowanych
-    // Pobierz dane o użytkowniku i zapisz je do zmiennej $userData
-    $userData = $user->data();
-
-    echo '<h1>Witaj '.$userData['login'].'!</h1>';
-    echo '<p>Możesz zobaczyć swój <a href="profile.php?id='.$userData['id'].'">profil</a> albo się <a href="logout.php">wylogować</a></p>';
-	echo '<h2>Rozpocznij <a href="game.php">nową grę</a></h2>';
-} else {
-    // Widok dla użytkownika niezalogowanego
-    echo '<p>Nie jesteś zalogowany.<br><a href="login.php">Zaloguj</a> się lub <a href="register.php">zarejestruj</a> jeśli jeszcze nie masz konta.</p>';
-}
-
-require 'includes/footer.php';
+    // dołączenie menu na górze (górna belka)
+    include("includes/f_menu.php");
+?>
+        <!-- Tutaj zaczyna się treść danej podstrony -->
+        <!-- Całość jest zawarta w containerze oraz w jednym row -->
+        <div class="container">
+            <div id="z_panel_calosc" class="row">
+                 <?php 
+                     // dołącza plik, jaki jest podany w zmiennej $_GET['v'] (pierwszy argument)
+                     // jeśli taka zmienna nie istnieje, jest dodawany plik 'tresc/strona_glowna' (drugi argument)
+                     dolacz_plik("v", "index2"); 
+                 ?>
+            </div> 
+        </div>    
+<?php require 'includes/footer.php';

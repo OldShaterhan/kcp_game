@@ -1,6 +1,4 @@
 <?php
-require 'includes/config.php';
-require 'includes/header.php';
 
 // Upewnij się że użytkownik jest zalogowany
 if (!$user->check()) {
@@ -26,6 +24,3 @@ if (empty($profile)) {
     <dt>Login:</dt> <dd><?php echo $profile['login'] ?></dd>
     <dt>E-mail:</dt> <dd><?php echo $profile['email'] ?></dd>
 </dl>
-
-<?php
-require 'includes/footer.php';

@@ -11,13 +11,9 @@
    +----------------------------------------------------------------------+
 */
 
-require 'includes/config.php';
-require 'includes/header.php';
 
-if ($user->check()) {
-	echo 'Jesteś już zalogowany';
-}
-else
+
+
 {
 // Zabezpiecz zmienne odebrane z formularza, przed atakami SQL Injection
 $login = $db->real_escape_string(htmlspecialchars(trim($_POST['login'])));
@@ -68,5 +64,5 @@ else
 <?php
 }
 }
-require 'includes/footer.php';
+
 ?>

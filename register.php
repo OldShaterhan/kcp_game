@@ -11,13 +11,10 @@
    +----------------------------------------------------------------------+
 */
 
-require 'includes/config.php';
-require 'includes/header.php';
+require_once 'includes/config.php';
+require_once 'includes/header.php';
 
-if ($user->check()) {
-	echo 'Jesteś już zalogowany. Nie możesz założyć nowego konta.';
-}
-else
+
 {
 	if ($_POST) {
 		// Zabezpiecz dane z formularza przed kodem HTML i ewentualnymi atakami SQL Injection
