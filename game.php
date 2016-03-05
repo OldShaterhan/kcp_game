@@ -39,7 +39,7 @@ if ($user->check()) {
 			</table>
 			<input type="submit" name="send">
 			</form>
-<?
+<?php
 		}
 	}
 	else
@@ -86,7 +86,7 @@ if ($user->check()) {
 	
 
 	
-<?
+<?php
 	echo $_GET["step"];
 	}
 }
