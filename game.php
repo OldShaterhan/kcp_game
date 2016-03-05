@@ -10,22 +10,35 @@ if ($user->check()) {
 	{
 		if ($_GET["step"]==2){	
 			?>
-			<!--<script language="JavaScript">
-				
-				function change_input_count(theBox) {
-				   if (boxesCount+1 > maxBoxes) {
-						  alert('Maksimum to ' + maxBoxes + ' rund');
-						  return false;
+			
+			
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>‌​
+			<script language="JavaScript">
+
+				$('#players_count').change(function() {
+				   if (this.value <= 7) {
+					   $("plB4").hide()
 				   }
-				   boxesCount++
-				   return true;
+				   if (this.value <= 6) {
+					   $("plA4").hide()
+				   }
+				   if (this.value <= 5) {
+					   $("plB3").hide()
+				   }
+				   if (this.value <= 4) {
+					   $("plA3").hide()
+				   }
+				   if (this.value <= 3) {
+					   $("plB2").hide()
+				   }
+				   if (this.value == 2) {
+					   $("plA2").hide()
+				   }
 				}
-				function subtract() {
-				   boxesCount--
-				}
-			</script>-->
+			</script>
 			<form name="players" action="game.php?step=3">
-			Podaj liczbę graczy (2-8): <input type="number" id="players_count" min="2" max="8" onchange=""/><br />
+			Podaj liczbę graczy (2-8): <input type="number" id="players_count" min="2" max="8" onchange="" value="8"/><br />
 			Podaj imię prowadzącego grę: <input type="text" id="leader"/><br />
 			<table>
 			<tr><td>Podaj imię 1. gracza drużyny A (kapitana): <input type="text" id="plA1"/></td>
@@ -64,20 +77,20 @@ if ($user->check()) {
 	}
 </script>
 
-<form method="post" action="?step=2">
-<label for="kalv1"><input type="checkbox" id="kalv1" onclick="if (this.checked) return check(this); else subtract()" />Kalambury (v.1)</label>
-<label for="kalv2"><input type="checkbox" disabled="disabled" id="kalv2" onclick="if (this.checked) return check(this); else subtract()" />Kalambury (v.2)*</label>
-<label for="licyt"><input type="checkbox" id="licyt" onclick="if (this.checked) return check(this); else subtract()" />Licytacje</label>
-<label for="muz_lic"><input type="checkbox" id="muz_lic" onclick="if (this.checked) return check(this); else subtract()" />Muzyczne licytacje</label>
-<label for="urodziny"><input type="checkbox" id="urodziny" onclick="if (this.checked) return check(this); else subtract()" />Urodziny</label>
-<label for="kto-kim"><input type="checkbox" id="kto-kim" onclick="if (this.checked) return check(this); else subtract()" />Kto jest kim?</label>
-<label for="zakazane"><input type="checkbox" id="zakazane" onclick="if (this.checked) return check(this); else subtract()" />Zakazane słowa</label>
-<label for="tv_i_film"><input type="checkbox" id="tv_i_film" onclick="if (this.checked) return check(this); else subtract()" />Cytaty TV i Film</label>
-<label for="sport"><input type="checkbox" id="sport" onclick="if (this.checked) return check(this); else subtract()" />Sport</label>
-<label for="telewiad"><input type="checkbox" id="telewiad" onclick="if (this.checked) return check(this); else subtract()" />Tele-wiadomości</label>
-<label for="pols"><input type="checkbox" id="pols" onclick="if (this.checked) return check(this); else subtract()" />Polszczyzna (v.1)</label>
-<label for="polsv2"><input type="checkbox" disabled="disabled" id="polsv2" onclick="if (this.checked) return check(this); else subtract()" />Polszczyzna (v.2)*</label>
-<label for="final"><input type="checkbox" disabled="disabled" id="final" checked="checked" />Finał</label><br />
+<form method="post" action="game.php?step=2">
+<label for="kalv1"><input type="checkbox" id="kalv1" name="kalv1 "onclick="if (this.checked) return check(this); else subtract()" />Kalambury (v.1)</label>
+<label for="kalv2"><input type="checkbox" id="kalv2" name="kalv2" onclick="if (this.checked) return check(this); else subtract()" disabled="disabled"/>Kalambury (v.2)*</label>
+<label for="licyt"><input type="checkbox" id="licyt" name="licyt" onclick="if (this.checked) return check(this); else subtract()" />Licytacje</label>
+<label for="muz_lic"><input type="checkbox" id="muz_lic" name="muz_lic" onclick="if (this.checked) return check(this); else subtract()" />Muzyczne licytacje</label>
+<label for="urodziny"><input type="checkbox" id="urodziny" name="urodziny" onclick="if (this.checked) return check(this); else subtract()" />Urodziny</label>
+<label for="kto-kim"><input type="checkbox" id="kto-kim" name="kto-kim" onclick="if (this.checked) return check(this); else subtract()" />Kto jest kim?</label>
+<label for="zakazane"><input type="checkbox" id="zakazane" id="zakazane" onclick="if (this.checked) return check(this); else subtract()" />Zakazane słowa</label>
+<label for="tv_i_film"><input type="checkbox" id="tv_i_film" id="tv_i_film" onclick="if (this.checked) return check(this); else subtract()" />Cytaty TV i Film</label>
+<label for="sport"><input type="checkbox" id="sport" name="sport" onclick="if (this.checked) return check(this); else subtract()" />Sport</label>
+<label for="telewiad"><input type="checkbox" id="telewiad" name="telewiad" onclick="if (this.checked) return check(this); else subtract()" />Tele-wiadomości</label>
+<label for="pols"><input type="checkbox" id="pols" name="pols" onclick="if (this.checked) return check(this); else subtract()" />Polszczyzna (v.1)</label>
+<label for="polsv2"><input type="checkbox" id="polsv2" name="polsv2" onclick="if (this.checked) return check(this); else subtract()" disabled="disabled"/>Polszczyzna (v.2)*</label>
+<label for="final"><input type="checkbox" id="final" name="final" checked="checked" disabled="disabled"/>Finał</label><br />
 
 <input type="submit" value="Dalej">
 </form>
