@@ -62,18 +62,24 @@ if ($user->check()) {
 				});
 			</script>
 			
+			<style>
+			.players_rows {
+				width: 25%;
+			}
+			</style>
+			
 			<form name="players" action="game.php?step=3">
 			Podaj liczbę graczy (2-8): <input type="number" id="players_count" min="2" max="8" onchange="" value="8"/><br />
 			Podaj imię prowadzącego grę: <input type="text" id="leader"/><br />
 			<table>
-			<tr><td>Podaj imię 1. gracza drużyny A (kapitana): <input type="text" id="plA1_name"/></td>
-			<td><div id="plA2_div">Podaj imię 2. gracza drużyny A: <input type="text" id="plA2_name"/></div></td>
-			<td><div id="plA3_div">Podaj imię 3. gracza drużyny A: <input type="text" id="plA3_name"/></div></td>
-			<td><div id="plA4_div">Podaj imię 4. gracza drużyny A: <input type="text" id="plA4_name"/></div></td></tr>
-			<tr><td>Podaj imię 1. gracza drużyny B: <input type="text" id="plB1_name"/></td>
-			<td><div id="plB2_div">Podaj imię 2. gracza drużyny B: <input type="text" id="plB2_name"/></div></td>
-			<td><div id="plB3_div">Podaj imię 3. gracza drużyny B: <input type="text" id="plB3_name"/></div></td>
-			<td><div id="plB4_div">Podaj imię 4. gracza drużyny B: <input type="text" id="plB4_name"/></div></td>
+			<tr><td class="players_rows">Podaj imię 1. gracza drużyny A (kapitana): <input type="text" id="plA1_name"/></td>
+			<td td class="players_rows"><div id="plA2_div">Podaj imię 2. gracza drużyny A: <input type="text" id="plA2_name"/></div></td>
+			<td td class="players_rows"><div id="plA3_div">Podaj imię 3. gracza drużyny A: <input type="text" id="plA3_name"/></div></td>
+			<td td class="players_rows"><div id="plA4_div">Podaj imię 4. gracza drużyny A: <input type="text" id="plA4_name"/></div></td></tr>
+			<tr><td td class="players_rows">Podaj imię 1. gracza drużyny B: <input type="text" id="plB1_name"/></td>
+			<td td class="players_rows"><div id="plB2_div">Podaj imię 2. gracza drużyny B: <input type="text" id="plB2_name"/></div></td>
+			<td td class="players_rows"><div id="plB3_div">Podaj imię 3. gracza drużyny B: <input type="text" id="plB3_name"/></div></td>
+			<td td class="players_rows"><div id="plB4_div">Podaj imię 4. gracza drużyny B: <input type="text" id="plB4_name"/></div></td>
 			</table>
 			<input type="submit" name="send">
 			</form>
