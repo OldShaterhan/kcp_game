@@ -12,43 +12,68 @@ if ($user->check()) {
 			?>
 			
 			
-			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
-			<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>‌​
-			<script language="JavaScript">
+			<<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
 
-				$('#players_count').change(function() {
-				   if (this.value <= 7) {
-					   $("plB4").hide()
-				   }
-				   if (this.value <= 6) {
-					   $("plA4").hide()
-				   }
-				   if (this.value <= 5) {
-					   $("plB3").hide()
-				   }
-				   if (this.value <= 4) {
-					   $("plA3").hide()
-				   }
-				   if (this.value <= 3) {
-					   $("plB2").hide()
-				   }
-				   if (this.value == 2) {
-					   $("plA2").hide()
-				   }
-				}
+			<script type='text/javascript'> //Wyświetla odpowiednią liczbę pól do podania danych graczy
+				$(window).load(function(){
+					$('#players_count').change(function() { //Sprawdza zmianę wartości pola input id="players_count"
+					   if ($(this).val() <= 7) {
+						   $('#plB4_div').hide();
+					   }
+					   else {
+						   $('#plB4_div').show();
+					   }
+					   if ($(this).val() <= 6) {
+						   $('#plA4_div').hide();
+					   }
+					   else {
+						   $('#plA4_div').show();
+					   }
+					   
+					   if ($(this).val() <= 5) {
+						   $('#plB3_div').hide();
+					   }
+					   else {
+						   $('#plB3_div').show();
+					   }
+					   
+					   if ($(this).val() <= 4) {
+						   $('#plA3_div').hide();
+					   }
+					   else {
+						   $('#plA3_div').show();
+					   }
+					   
+					   if ($(this).val() <= 3) {
+						   $('#plB2_div').hide();
+					   }
+					   else {
+						   $('#plB2_div').show();
+					   }
+					   
+					   if ($(this).val() == 2) {
+						   $('#plA2_div').hide();
+					   }
+					   else {
+						   $('#plA2_div').show();
+					   }
+					   
+					});
+				});
 			</script>
+			
 			<form name="players" action="game.php?step=3">
 			Podaj liczbę graczy (2-8): <input type="number" id="players_count" min="2" max="8" onchange="" value="8"/><br />
 			Podaj imię prowadzącego grę: <input type="text" id="leader"/><br />
 			<table>
-			<tr><td>Podaj imię 1. gracza drużyny A (kapitana): <input type="text" id="plA1"/></td>
-			<td>Podaj imię 2. gracza drużyny A: <input type="text" id="plA2"/></td>
-			<td>Podaj imię 3. gracza drużyny A: <input type="text" id="plA3"/></td>
-			<td>Podaj imię 4. gracza drużyny A: <input type="text" id="plA4"/></td></tr>
-			<tr><td>Podaj imię 1. gracza drużyny B: <input type="text" id="plB1"/></td>
-			<td>Podaj imię 2. gracza drużyny B: <input type="text" id="plB2"/></td>
-			<td>Podaj imię 3. gracza drużyny B: <input type="text" id="plB3"/></td>
-			<td>Podaj imię 4. gracza drużyny B: <input type="text" id="plB4"/></td>
+			<tr><td>Podaj imię 1. gracza drużyny A (kapitana): <input type="text" id="plA1_name"/></td>
+			<td><div id="plA2_div">Podaj imię 2. gracza drużyny A: <input type="text" id="plA2_name"/></div></td>
+			<td><div id="plA3_div">Podaj imię 3. gracza drużyny A: <input type="text" id="plA3_name"/></div></td>
+			<td><div id="plA4_div">Podaj imię 4. gracza drużyny A: <input type="text" id="plA4_name"/></div></td></tr>
+			<tr><td>Podaj imię 1. gracza drużyny B: <input type="text" id="plB1_name"/></td>
+			<td><div id="plB2_div">Podaj imię 2. gracza drużyny B: <input type="text" id="plB2_name"/></div></td>
+			<td><div id="plB3_div">Podaj imię 3. gracza drużyny B: <input type="text" id="plB3_name"/></div></td>
+			<td><div id="plB4_div">Podaj imię 4. gracza drużyny B: <input type="text" id="plB4_name"/></div></td>
 			</table>
 			<input type="submit" name="send">
 			</form>
